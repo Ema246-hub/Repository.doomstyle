@@ -1,0 +1,48 @@
+/* color de fondo para "body" */
+body {
+    background-color: rgb(64, 64, 64);
+}
+
+/* fuente interna */
+@font-face {
+    font-family: PlayfairDisplay-SemiBold;
+    src: url(../assets/fonts/Playfair_Display/static/PlayfairDisplay-SemiBold.ttf);
+}
+
+/* fuente, color de fuente y color de fondo para "h1" */
+h1 {
+    background-color: rgb(140, 140, 140);
+    font-family: 'PlayfairDisplay-SemiBold', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+/* fuente externa para "p" */
+p {
+    font-family: 'Bebas Neue', sans-serif;
+    color: rgb(217, 217, 217);
+}
+
+/* color para enlaces */
+a {
+    color: rgb(217, 217, 217);
+}
+
+/* hover para enlaces */
+a:hover {
+    color: rgb(242, 242, 242);
+}
+
+/* fuente interna, color de fuente y color de fondo para "h2" */
+h2 {
+    background-color: rgb(140, 140, 140);
+    font-family: 'PlayfairDisplay-SemiBold', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+/* fuente interna, color de fuente y color de fondo para "h3" */
+h3 {
+    background-color: rgb(140, 140, 140);
+    font-family: 'PlayfairDisplay-SemiBold', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
