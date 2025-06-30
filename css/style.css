@@ -48,7 +48,8 @@ h3 {
     border-radius: 0px;
     padding: 5px 10px 5px 10px;
     border: rgb(255, 255, 255) solid 2px;
-    background-color: rgb(0, 0, 0);
+    background: url(../assets/images/fondo\ 4.avif);
+    background-size: 100%;
 }
 
 /* se usa flexbox para direccionar una columna de imágenes y justificarlas en el centro */
@@ -166,19 +167,9 @@ h3 {
     padding: 5px 10px 5px 10px;
     margin-top: 5px;
     margin: 10px;
-    border: rgb(255, 255, 255) 2px solid;
-    border-radius: 10px;
+    border-radius: 5px;
     background: url(../assets/images/fondo\ 4.avif);
     background-size: 110%;
-}
-
-.buzo-text {
-    border: rgb(255, 255, 255) solid 2px;
-    background-color: rgb(0, 0, 0);
-    padding: 0px 5px 0px 5px;
-    margin-top: 0px;
-    margin: 15px;
-    border-radius: 10px;
 }
 
 /* se usa flexbox para justificar espacio entre imágenes, distribuir y centrar textos */
@@ -190,8 +181,8 @@ h3 {
     padding: 5px 10px 5px 10px;
     margin-top: 5px;
     margin: 10px;
-    border: rgb(0, 0, 0) 2px solid;
-    background: url(../assets/images/fondo\ 3.jpg);
+    border-radius: 5px;
+    background: url(../assets/images/fondo\ 4.avif);
     background-size: 110%;
 }
 
@@ -204,7 +195,16 @@ h3 {
     padding: 5px 10px 5px 10px;
     margin-top: 5px;
     margin: 10px;
-    border: rgb(0, 0, 0) 2px solid;
-    background: url(../assets/images/fondo\ 3.jpg);
+    border-radius: 5px;
+    background: url(../assets/images/fondo\ 4.avif);
     background-size: 110%;
+}
+
+/* se aplican estilos a los textos de las fotos de los buzos */
+.buzo-text {
+    border: rgb(255, 255, 255) solid 2px;
+    background-color: rgb(0, 0, 0);
+    padding: 0px 5px 0px 5px;
+    margin-top: 0px;
+    margin: 15px;
 }
