@@ -1,210 +1,360 @@
-/* imagen de fondo para "body" */
-body {
-    background: url(../assets/images/fondo\ 3.jpg); 
-    background-size: 100%;   
+/*
+|--------------------------------------------------------------------------
+| ESTILOS GENERALES
+|--------------------------------------------------------------------------
+*/
+
+/* Reset básico para el viewport, esencial para el Diseño Responsivo */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* fuente interna */
+body {
+    background: url(../assets/images/fondo\ 3.jpg); 
+    background-size: cover; /* Cambiado a cover para mejor adaptación */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Fuentes */
 @font-face {
-    font-family: PlayfairDisplay-SemiBold;
+    font-family: 'PlayfairDisplay-SemiBold';
     src: url(../assets/fonts/Playfair_Display/static/PlayfairDisplay-SemiBold.ttf);
 }
 
-/* fuente, color de fuente y color de fondo para "h1" */
-h1 {
+h1, h2, h3 {
     font-family: 'PlayfairDisplay-SemiBold', sans-serif;
-    font-size: 250%;
     color: rgb(242, 242, 242);
+    text-align: center;
 }
 
-/* fuente externa para "p" */
 p {
     font-family: 'Bebas Neue', sans-serif;
     color: rgb(217, 217, 217);
 }
 
-/* color para enlaces */
 a {
     color: rgb(217, 217, 217);
+    text-decoration: none; /* Mejor usabilidad */
 }
 
-/* hover para enlaces */
 a:hover {
     color: rgb(242, 242, 242);
 }
 
-/* fuente interna, color de fuente y color de fondo para "h2" */
-h2 {
-    font-family: 'PlayfairDisplay-SemiBold', sans-serif;
-    font-size: 250%;
-    text-align: center;
-    color: rgb(255, 255, 255);
-}
 
-/* fuente interna, color de fuente y color de fondo para "h3" */
-h3 {
-    font-family: 'PlayfairDisplay-SemiBold', sans-serif;
-    color: rgb(255, 255, 255);
-    border-radius: 0px;
-    padding: 5px 10px 5px 10px;
-    border: rgb(255, 255, 255) solid 2px;
-    background: url(../assets/images/fondo\ 4.avif);
-    background-size: 100%;
-}
-
-/* se usa flexbox para direccionar una columna de imágenes y justificarlas en el centro */
-.container-img1 {
+/*
+|--------------------------------------------------------------------------
+| BLOQUE HEADER (Cabecera y Navegación)
+|--------------------------------------------------------------------------
+*/
+.header {
     display: flex;
-    filter: brightness(0.7);
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #000; /* Fondo oscuro sólido para la cabecera */
+    border-bottom: 2px solid rgb(242, 242, 242);
+    /* Posibilidad de hacerlo sticky/fixed si se desea, para que esté siempre visible */
+    /* position: sticky; top: 0; z-index: 100; */
+}
+
+.header__logo-container {
+    background: url(../assets/images/logo\ doom.png) no-repeat center / 100%;
     padding: 10px;
+    width: 150px; /* Ajustar el tamaño del logo */
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__titulo {
+    font-size: 1.5rem;
+    color: transparent; /* Oculta el texto si el logo es solo la imagen de fondo */
+}
+
+/* Navegación (Elemento del Header) */
+.nav__lista {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav__link {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.nav__link--activo {
+    border-bottom: 2px solid rgb(242, 242, 242); /* Modificador para el link activo */
+}
+
+/*
+|--------------------------------------------------------------------------
+| BLOQUE INTRODUCCION (Contenido principal - Index)
+|--------------------------------------------------------------------------
+*/
+.introduccion__contenido {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    background: url(../assets/images/fondo\ 1.jpg) no-repeat center / cover;
+    margin-top: 10px;
 }
 
-/* se usa flexbox para direccionar una columna de textos y justificarlos en el centro */
-.container-text {
-    display: flex;
-    padding: 0px;
-    margin-top: 5px;
+.introduccion__texto {
+    font-size: 2rem;
     text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    background: url(../assets/images/fondo\ 1.jpg);
-    background-size: 100%;
-    font-size: 35px;
+    margin: 15px 0;
 }
 
-/* se usa flexbox para justificar el titulo h1 en el centro */
-.container-h1 {
-    display: flex;
-    padding: 0px;
-    margin-top: 0px;
-    background: url(../assets/images/logo\ doom.png);
-    background-size: 25%;
-    justify-content: center;
-    font-size: 16px;
+.introduccion__texto--resaltado {
+    font-size: 2.5rem; /* Modificador para destacar */
+    color: rgb(255, 100, 0); /* Ejemplo de cambio de color */
 }
 
-/* se usa flexbox para justificar el titulo h2 en el centro */
-.container-h2 {
-    display: flex;
-    padding: 0px;
-    margin-top: 5px;
-    background: url(../assets/images/palabra\ style.png);
-    background-size: 25%;
-    justify-content: center;
-    font-size: 15px;
+.introduccion__imagen-container {
+    padding: 10px;
+    filter: brightness(0.7);
+    margin: 10px 0;
 }
 
-/* se usa flexbox para justificar espacio entre imágenes y distribuir */
-.container-img2 {
-    display: flex;
-    text-align: center;
-    justify-content: space-between;
-    padding: 10px 10px 10px 10px;
-    font-size: 20px;
-    margin-top: 5px;
-    background: url(../assets/images/fondo\ 2.jpg);
-    background-size: 110%;
+.introduccion__imagen {
+    width: 80%;
+    max-width: 500px; /* Limitar el tamaño en desktop */
+    height: auto;
+    display: block; /* Para centrar la imagen dentro de su contenedor */
 }
 
-/* se usa flexbox para justificar el titulo h3 al final del contenedor */
-.container-h3 {
-    display: flex;
-    margin: 0%;
-    justify-content: flex-end;
-    font-size: 20px;
+
+/*
+|--------------------------------------------------------------------------
+| BLOQUE PRODUCTOS (Galería principal - Index)
+|--------------------------------------------------------------------------
+*/
+.productos {
+    padding: 20px;
 }
 
-/* se usa flexbox para justificar el enlace al final del contenedor */
-.container-enlace {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 0px;
-    font-size: 20px;
+.productos__titulo {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    padding: 10px;
+    background: url(../assets/images/palabra\ style.png) no-repeat center / 100%;
 }
 
-/* se usa flexbox para justificar el titulo h1 de la sección buzos en el centro */
-.container-buzosh1 {
+.productos__galeria {
     display: flex;
-    padding: 0px;
-    margin-top: 5px;
-    background: url(../assets/images/logo\ doom.png);
-    background-size: 25%;
-    justify-content: center;
-    font-size: 15px;   
-}
-
-/* se usa flexbox para justificar el titulo h1 de la sección pantalones en el centro */
-.container-pantalonesh1 {
-    display: flex;
-    padding: 0px;
-    margin-top: 5px;
-    background: url(../assets/images/logo\ doom.png);
-    background-size: 25%;
-    justify-content: center;
-    font-size: 15px;   
-}
-
-/* se usa flexbox para justificar el titulo h1 de la sección remeras en el centro */
-.container-remerash1 {
-    display: flex;
-    padding: 0px;
-    margin-top: 5px;
-    background: url(../assets/images/logo\ doom.png);
-    background-size: 25%;
-    justify-content: center;
-    font-size: 15px;   
-}
-
-/* se usa flexbox para justificar espacio entre imágenes, distribuir y centrar textos */
-.container-img-buzos{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    padding: 5px 10px 5px 10px;
-    margin-top: 5px;
-    margin: 10px;
+    justify-content: space-around; /* Mejor que space-between para responsividad */
+    align-items: flex-start;
+    padding: 10px;
+    margin-top: 20px;
+    background: url(../assets/images/fondo\ 2.jpg) no-repeat center / cover;
     border-radius: 5px;
-    background: url(../assets/images/fondo\ 4.avif);
-    background-size: 110%;
 }
 
-/* se usa flexbox para justificar espacio entre imágenes, distribuir y centrar textos */
-.container-img-buzos2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/*
+|--------------------------------------------------------------------------
+| BLOQUE PRODUCTO-CARD (Componente reutilizable)
+|--------------------------------------------------------------------------
+*/
+.producto-card {
     text-align: center;
-    padding: 5px 10px 5px 10px;
-    margin-top: 5px;
+    font-size: 1.2rem;
     margin: 10px;
-    border-radius: 5px;
-    background: url(../assets/images/fondo\ 4.avif);
-    background-size: 110%;
+    padding: 10px;
 }
 
-/* se usa flexbox para justificar espacio entre imágenes, distribuir y centrar textos */
-.container-img-buzos3 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    padding: 5px 10px 5px 10px;
-    margin-top: 5px;
-    margin: 10px;
-    border-radius: 5px;
-    background: url(../assets/images/fondo\ 4.avif);
-    background-size: 110%;
+.producto-card__enlace {
+    display: block;
+    transition: opacity 0.3s;
 }
 
-/* se aplican estilos a los textos de las fotos de los buzos */
-.buzo-text {
+.producto-card__enlace:hover {
+    opacity: 0.8;
+}
+
+.producto-card__imagen {
+    width: 100%; /* Permite que se adapte al contenedor */
+    max-width: 250px;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.producto-card__texto {
+    margin-top: 5px;
+}
+
+/* Modificador para el catálogo de buzos */
+.producto-card--catalogo {
+    width: 30%; /* Para que quepan 3 por fila en desktop */
+    margin-bottom: 20px;
+}
+
+.producto-card__detalle {
     border: rgb(255, 255, 255) solid 2px;
-    background-color: rgb(0, 0, 0);
-    padding: 0px 5px 0px 5px;
-    margin-top: 0px;
-    margin: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.producto-card__texto-nombre {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/*
+|--------------------------------------------------------------------------
+| BLOQUE REFERENCIA (Enlaces - Index)
+|--------------------------------------------------------------------------
+*/
+.referencia {
+    padding: 20px;
+}
+
+.referencia__titulo {
+    font-size: 2rem;
+    margin: 0;
+    padding: 10px;
+    border: rgb(255, 255, 255) solid 2px;
+    background: url(../assets/images/fondo\ 4.avif) no-repeat center / cover;
+    border-radius: 0px;
+    float: right; /* Alineación a la derecha */
+}
+
+.referencia__enlace-container {
+    clear: right; /* Limpia el float del título */
+    text-align: right;
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| BLOQUE CATALOGO-BUZOS (Página de Buzos)
+|--------------------------------------------------------------------------
+*/
+.catalogo-buzos {
+    padding: 20px;
+}
+
+.catalogo-buzos__titulo-container {
+    /* Mantiene el fondo de logo para unificar la identidad */
+    background: url(../assets/images/logo\ doom.png) no-repeat center / 25%;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.catalogo-buzos__titulo {
+    font-size: 2.5rem;
+}
+
+.catalogo-buzos__galeria {
+    display: flex;
+    flex-wrap: wrap; /* Esencial para que se adapten en diferentes líneas */
+    justify-content: space-around;
+    padding: 10px;
+    background: url(../assets/images/fondo\ 4.avif) no-repeat center / cover;
+    border-radius: 5px;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| BLOQUE FOOTER (Pie de Página)
+|--------------------------------------------------------------------------
+*/
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    margin-top: 20px;
+    background: #000;
+    border-top: 2px solid rgb(242, 242, 242);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer__texto {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.footer__redes {
+    display: flex;
+    gap: 15px;
+}
+
+.footer__link {
+    font-size: 1rem;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| MEDIA QUERIES (Diseño Responsivo)
+|--------------------------------------------------------------------------
+*/
+
+/* Tablet y Móvil (se aplica a pantallas más pequeñas) */
+@media (max-width: 768px) {
+    
+    /* Header: Pasa a un enfoque más vertical */
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav__lista {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    /* Productos (Index): Pasan a columna */
+    .productos__galeria {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Producto Card: Se ajusta el ancho */
+    .producto-card {
+        width: 90%; 
+        max-width: 400px;
+    }
+    
+    .producto-card__imagen {
+        max-width: 100%;
+    }
+    
+    /* Catálogo de Buzos: Pasa a columna */
+    .catalogo-buzos__galeria {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .producto-card--catalogo {
+        width: 90%; /* Ancho completo para móvil */
+    }
+    
+    /* Footer: Pasa a columna */
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .footer__redes {
+        flex-direction: row; /* Mantiene las redes en línea, pero si hay muchas se puede cambiar a columna */
+    }
+    
 }

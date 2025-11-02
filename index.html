@@ -1,87 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-    <meta charset="UTF-8">
-    <title>DOOM STYLE</title>
-    <link rel="shortcut icon" href="./assets/icon/letra-d.ico" type="image/mx-ico">
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <!-- el sketch fue realizado por Herrera Esteban -->
-    <!-- Diaz colaboró con el inicio del archivo index.html -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>DOOM STYLE - Inicio</title>
+        <link rel="shortcut icon" href="./assets/icon/letra-d.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     </head>
     <body>
-        <section>
-            <div class="container-h1">
-            <h1>DOOM STYLE</h1>
+        
+        <header class="header">
+            <div class="header__logo-container">
+                <a href="./index.html" class="header__logo-link">
+                    <h1 class="header__titulo">DOOM STYLE</h1>
+                </a>
             </div>
-            <!-- contenedor del titulo h1 -->
-            <!-- el titulo lo eligieron Dorfmuller y Matorras -->
-            <header>
-                <div class="container-text">
-                    <p>
+            
+            <nav class="nav">
+                <ul class="nav__lista">
+                    <li class="nav_item"><a href="./index.html" class="navlink nav_link--activo">Inicio</a></li>
+                    <li class="nav_item"><a href="./page/seccion_buzos.html" class="nav_link">Buzos</a></li>
+                    <li class="nav_item"><a href="./page/seccion_pantalones.html" class="nav_link">Pantalones</a></li>
+                    <li class="nav_item"><a href="./page/seccion_remeras.html" class="nav_link">Remeras</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main">
+            
+            <section class="introduccion">
+                <div class="introduccion__contenido">
+                    <p class="introduccion__texto">
                         ¡Bienvenidos a nuestra página oficial!
                     </p>
-                    <div class="container-img1">
-                    <img src="./assets/images/horizontal 1.avif" alt="texto" width="80%" height="80%">
+                    <div class="introduccion__imagen-container">
+                        <img src="assets/images/horizontal1.avif" alt="Ropa moderna en maniquí" class="introduccion__imagen">
                     </div>
-                    <p>
+                    <p class="introduccion__texto">
                         ¡Ropa cómoda y de calidad para vos!
                     </p>
-                    <div class="container-img1"> 
-                        <!-- contenedor para imágenes -->
-                    <img src="./assets/images/horizontal 2.jpg" alt="texto" width="80%" height="80%">
+                    <div class="introduccion__imagen-container"> 
+                        <img src="./assets/images/horizontal2.jpg" alt="Persona usando buzo moderno" class="introduccion__imagen">
                     </div>
-                    <p>
+                    <p class="introduccion_texto introduccion_texto--resaltado">
                         ¡No te vas a arrepentir!
                     </p>               
                 </div>
-                <!-- contenedor para textos -->
-            <!-- el párrafo lo realizo Herrera Matías -->
-            </header>
-        </section>
-        <section>
-            <div class="container-h2">
-            <h2>NUESTROS PRODUCTOS</h2>
+            </section>
+            
+            <section class="productos">
+                <h2 class="productos__titulo">NUESTROS PRODUCTOS</h2>
+                <div class="productos__galeria">
+                    
+                    <div class="producto-card">
+                        <a href="./page/seccion_buzos.html" class="producto-card__enlace">
+                            <img src="./assets/images/buzo.jpg" alt="Buzos en exhibición" class="producto-card__imagen">
+                            <p class="producto-card__texto">Sección Buzos</p>
+                        </a>
+                    </div>
+                    
+                    <div class="producto-card">
+                        <a href="./page/seccion_pantalones.html" class="producto-card__enlace">
+                            <img src="./assets/images/pantalón.jpg" alt="Pantalones en exhibición" class="producto-card__imagen">
+                            <p class="producto-card__texto">Sección Pantalones</p>
+                        </a>
+                    </div>
+                    
+                    <div class="producto-card">
+                        <a href="./page/seccion_remeras.html" class="producto-card__enlace">
+                            <img src="./assets/images/remera.jpg" alt="Remeras en exhibición" class="producto-card__imagen">
+                            <p class="producto-card__texto">Sección Remeras</p>
+                        </a>
+                    </div>
+                    
+                </div> 
+            </section>
+                
+        </main>
+        
+        <footer class="footer">
+            <p class="footer__texto">© 2024 DOOM STYLE. Todos los derechos reservados.</p>
+            <div class="footer__redes">
+                <a href="#" class="footer__link">Instagram</a> | 
+                <a href="#" class="footer__link">Facebook</a>
             </div>
-            <!-- contenedor del titulo h2 -->
-            <div class="container-img2">
-                <div class="text-align: center";>
-                <a href="./page/sección_buzos.html">
-                <img src="./assets/images/buzo.jpg" alt="Descripción de la imagen" width="250" height="250">
-                <p>Sección Buzos</p>
-                </a>
-                <!-- enlace a la sección buzos -->
-             </div>
-             <div class="text-align: center";>
-                <a href="./page/sección_pantalones.html">
-                <img src="./assets/images/pantalón.jpg" alt="Descripción de la imagen" width="250" height="250">
-                <p>Sección Pantalones</p>
-                </a>
-                <!-- enlace a la sección pantalones -->
-             </div>
-             <div class="text-align: center";>
-                <a href="./page/sección_remeras.html">
-                <img src="./assets/images/remera.jpg" alt="Descripción de la imagen" width="250" height="250">
-                <p>Sección Remeras</p>
-                </a>
-                <!-- enlace a la sección remeras -->
-             </div>
-            </div> 
-            <!-- contenedor de imágenes, textos y enlaces --> 
-        </section>
-        <section>
-            <div class="container-h3">
-            <h3>REFERENCIA PARA LA CREACIÓN DE LA PÁGINA</h3>
-            </div>
-            <!-- contenedor del titulo h3 -->
-            <div class="container-enlace">
-            <a href="https://elixirclothes.com/">Elixir Clothes</a>
-            </div>
-            <!-- enlace a la página de referencia -->
-            <!-- contenedor del enlace -->
-        </section>
+        </footer>
+
     </body>
 </html>
-<!-- la organización de los archivos fue realizada por Matorras, Dorfmüller y Herrera Esteban -->
