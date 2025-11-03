@@ -522,3 +522,9 @@ a:hover {
         max-width: 45%;
     }
 }
+
+/* Este es un comentario temporal para forzar un nuevo deploy. */
+.footer__link:hover {
+    color: var(--color-accent); 
+}
+/* ... el resto de tu código CSS */
