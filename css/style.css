@@ -1,47 +1,82 @@
 /*
 |--------------------------------------------------------------------------
-| ESTILOS GENERALES
+| CSS CUSTOM PROPERTIES (VARIABLES)
 |--------------------------------------------------------------------------
 */
+:root {
+    --color-primary-dark: #000;
+    --color-bg-dark-new: rgba(34, 34, 34, 0.95); /* GRIS OSCURO (95% opacidad) */
+    --color-text-light: rgb(242, 242, 242);
+    --color-text-gray: rgb(217, 217, 217);
+    --color-accent: var(--color-text-light); /* COLOR DE ACENTO: BLANCO */
+    --font-heading: 'PlayfairDisplay-SemiBold', sans-serif;
+    --font-body: 'Bebas Neue', sans-serif;
+    --border-color: var(--color-text-light);
+    --header-height: 70px; 
+    --footer-height: 50px; 
+}
 
-/* Reset básico para el viewport, esencial para el Diseño Responsivo */
+
+/*
+|--------------------------------------------------------------------------
+| ESTILOS GENERALES Y RESET
+|--------------------------------------------------------------------------
+*/
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    background: url(../assets/images/fondo\ 3.jpg); 
-    background-size: cover; /* Cambiado a cover para mejor adaptación */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-/* Fuentes */
+/* Fuentes locales */
 @font-face {
     font-family: 'PlayfairDisplay-SemiBold';
     src: url(../assets/fonts/Playfair_Display/static/PlayfairDisplay-SemiBold.ttf);
 }
 
+body {
+    /* Ajuste para el footer fijo */
+    margin-bottom: var(--footer-height); 
+    background: url(../assets/images/fondo\ 3.jpg); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Evita el scroll horizontal no deseado */
+    overflow-x: hidden; 
+}
+
 h1, h2, h3 {
-    font-family: 'PlayfairDisplay-SemiBold', sans-serif;
-    color: rgb(242, 242, 242);
+    font-family: var(--font-heading);
+    color: var(--color-text-light);
     text-align: center;
 }
 
 p {
-    font-family: 'Bebas Neue', sans-serif;
-    color: rgb(217, 217, 217);
+    font-family: var(--font-body);
+    color: var(--color-text-gray);
 }
 
 a {
-    color: rgb(217, 217, 217);
-    text-decoration: none; /* Mejor usabilidad */
+    color: var(--color-text-gray);
+    text-decoration: none;
+    transition: color 0.3s; 
 }
 
 a:hover {
-    color: rgb(242, 242, 242);
+    color: var(--color-text-light);
+}
+
+/* Clase de accesibilidad para ocultar visualmente */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 
@@ -52,20 +87,24 @@ a:hover {
 */
 .header {
     display: flex;
+    flex-wrap: wrap; 
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background: #000; /* Fondo oscuro sólido para la cabecera */
-    border-bottom: 2px solid rgb(242, 242, 242);
-    /* Posibilidad de hacerlo sticky/fixed si se desea, para que esté siempre visible */
-    /* position: sticky; top: 0; z-index: 100; */
+    padding: 0.75rem 1.25rem; 
+    background: var(--color-bg-dark-new); /* APLICA GRIS OSCURO */
+    border-bottom: none; 
+    
+    position: sticky; 
+    top: 0; 
+    z-index: 100;
+    height: var(--header-height); 
 }
 
 .header__logo-container {
-    background: url(../assets/images/logo\ doom.png) no-repeat center / 100%;
-    padding: 10px;
-    width: 150px; /* Ajustar el tamaño del logo */
-    height: 60px;
+    background: url(../assets/images/logo\ doom.png) no-repeat center / contain; 
+    width: 120px; 
+    height: 100%;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,25 +112,47 @@ a:hover {
 
 .header__titulo {
     font-size: 1.5rem;
-    color: transparent; /* Oculta el texto si el logo es solo la imagen de fondo */
+    color: transparent; 
 }
 
-/* Navegación (Elemento del Header) */
+/* Navegación */
+.nav {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-toggle { 
+    display: none; 
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
 .nav__lista {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 1.2rem; 
 }
 
 .nav__link {
-    font-size: 1.2rem;
-    padding: 5px 10px;
-    transition: color 0.3s;
+    font-size: 1.1rem; 
+    padding: 0.4rem 0.6rem; 
+    transition: all 0.3s;
 }
 
-.nav__link--activo {
-    border-bottom: 2px solid rgb(242, 242, 242); /* Modificador para el link activo */
+.nav__link:hover {
+    color: var(--color-accent); 
 }
+
+.nav__link--active {
+    border-bottom: 2px solid var(--color-accent); 
+    color: var(--color-accent); 
+}
+
 
 /*
 |--------------------------------------------------------------------------
@@ -102,33 +163,36 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 2rem 1rem;
     background: url(../assets/images/fondo\ 1.jpg) no-repeat center / cover;
     margin-top: 10px;
 }
 
 .introduccion__texto {
-    font-size: 2rem;
+    font-size: 2.25rem;
     text-align: center;
-    margin: 15px 0;
+    margin: 1rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
 }
 
 .introduccion__texto--resaltado {
-    font-size: 2.5rem; /* Modificador para destacar */
-    color: rgb(255, 100, 0); /* Ejemplo de cambio de color */
+    font-size: 3rem; 
+    color: var(--color-accent); 
 }
 
 .introduccion__imagen-container {
-    padding: 10px;
-    filter: brightness(0.7);
-    margin: 10px 0;
+    padding: 0.625rem;
+    filter: brightness(0.9); 
+    margin: 1.5rem 0;
+    overflow: hidden; 
 }
 
 .introduccion__imagen {
-    width: 80%;
-    max-width: 500px; /* Limitar el tamaño en desktop */
+    width: 100%;
+    max-width: 600px; 
     height: auto;
-    display: block; /* Para centrar la imagen dentro de su contenedor */
+    display: block; 
+    border: 3px solid var(--border-color); 
 }
 
 
@@ -138,24 +202,31 @@ a:hover {
 |--------------------------------------------------------------------------
 */
 .productos {
-    padding: 20px;
+    padding: 2rem 1rem;
+    text-align: center;
 }
 
 .productos__titulo {
-    font-size: 2.5rem;
-    margin-top: 20px;
-    padding: 10px;
-    background: url(../assets/images/palabra\ style.png) no-repeat center / 100%;
+    font-size: 3rem;
+    margin-top: 1.25rem;
+    padding: 0.75rem 1.5rem; 
+    color: var(--color-text-light); 
+    border: none; 
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.8); 
+    letter-spacing: 2px; 
+    box-shadow: 0 0 10px rgba(242, 242, 242, 0.3); 
 }
 
 .productos__galeria {
     display: flex;
-    justify-content: space-around; /* Mejor que space-between para responsividad */
-    align-items: flex-start;
-    padding: 10px;
-    margin-top: 20px;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 2rem 1rem;
     background: url(../assets/images/fondo\ 2.jpg) no-repeat center / cover;
     border-radius: 5px;
+    margin-top: 1.25rem;
 }
 
 /*
@@ -165,103 +236,120 @@ a:hover {
 */
 .producto-card {
     text-align: center;
-    font-size: 1.2rem;
-    margin: 10px;
-    padding: 10px;
+    margin: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex-basis: 300px; 
+    flex-grow: 1; 
+    max-width: 30%;
+    border-radius: 5px; 
+    overflow: hidden; 
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(242, 242, 242, 0.5); 
 }
 
 .producto-card__enlace {
     display: block;
-    transition: opacity 0.3s;
+    border: none; 
 }
 
-.producto-card__enlace:hover {
-    opacity: 0.8;
+.producto-card__figura { 
+    margin: 0;
+    padding: 0;
 }
 
 .producto-card__imagen {
-    width: 100%; /* Permite que se adapte al contenedor */
-    max-width: 250px;
-    height: 250px;
-    border-radius: 5px;
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+    display: block;
 }
 
-.producto-card__texto {
-    margin-top: 5px;
+.producto-card__texto { 
+    font-size: 1.8rem;
+    padding: 0.5rem;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: var(--color-accent); 
+    border-top: 1px solid var(--color-accent); 
 }
 
-/* Modificador para el catálogo de buzos */
+
+/* Modificador para el catálogo (Páginas de Buzos, Pantalones, etc.) */
 .producto-card--catalogo {
-    width: 30%; /* Para que quepan 3 por fila en desktop */
-    margin-bottom: 20px;
+    flex-basis: 300px;
+    max-width: 300px;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--color-text-gray);
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px; 
+    overflow: hidden;
+}
+.producto-card--catalogo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(242, 242, 242, 0.5); 
 }
 
 .producto-card__detalle {
-    border: rgb(255, 255, 255) solid 2px;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 5px;
-    margin-top: 5px;
+    padding: 0.5rem;
+    margin-top: 0;
 }
 
 .producto-card__texto-nombre {
     font-size: 1.5rem;
     margin: 0;
-}
-
-/*
-|--------------------------------------------------------------------------
-| BLOQUE REFERENCIA (Enlaces - Index)
-|--------------------------------------------------------------------------
-*/
-.referencia {
-    padding: 20px;
-}
-
-.referencia__titulo {
-    font-size: 2rem;
-    margin: 0;
-    padding: 10px;
-    border: rgb(255, 255, 255) solid 2px;
-    background: url(../assets/images/fondo\ 4.avif) no-repeat center / cover;
-    border-radius: 0px;
-    float: right; /* Alineación a la derecha */
-}
-
-.referencia__enlace-container {
-    clear: right; /* Limpia el float del título */
-    text-align: right;
-    margin-top: 10px;
-    font-size: 1.5rem;
+    color: var(--color-text-light); 
 }
 
 
 /*
 |--------------------------------------------------------------------------
-| BLOQUE CATALOGO-BUZOS (Página de Buzos)
+| BLOQUE CATALOGO (Páginas de Buzos, Pantalones, Remeras)
 |--------------------------------------------------------------------------
 */
-.catalogo-buzos {
-    padding: 20px;
+.catalogo-buzos,
+.catalogo-pantalones,
+.catalogo-remeras {
+    padding: 2rem 1rem;
 }
 
-.catalogo-buzos__titulo-container {
-    /* Mantiene el fondo de logo para unificar la identidad */
-    background: url(../assets/images/logo\ doom.png) no-repeat center / 25%;
-    padding: 10px 0;
-    margin-bottom: 20px;
+.catalogo-buzos__titulo-container,
+.catalogo-pantalones__titulo-container,
+.catalogo-remeras__titulo-container {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
 }
 
-.catalogo-buzos__titulo {
-    font-size: 2.5rem;
+.catalogo-buzos__titulo,
+.catalogo-pantalones__titulo,
+.catalogo-remeras__titulo {
+    font-size: 3.5rem;
+    color: var(--color-accent); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9);
 }
 
-.catalogo-buzos__galeria {
+.catalogo-buzos__galeria,
+.catalogo-pantalones__galeria,
+.catalogo-remeras__galeria {
     display: flex;
-    flex-wrap: wrap; /* Esencial para que se adapten en diferentes líneas */
-    justify-content: space-around;
-    padding: 10px;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
     background: url(../assets/images/fondo\ 4.avif) no-repeat center / cover;
     border-radius: 5px;
+    min-height: 50vh;
+}
+
+.catalogo-pantalones__placeholder,
+.catalogo-remeras__placeholder {
+    font-size: 2rem;
+    color: var(--color-accent); 
+    padding: 2rem;
+    text-align: center;
 }
 
 
@@ -274,28 +362,33 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10px;
-    margin-top: 20px;
-    background: #000;
-    border-top: 2px solid rgb(242, 242, 242);
+    padding: 0.75rem 1.25rem; 
+    background: var(--color-bg-dark-new); /* APLICA GRIS OSCURO */
+    border-top: none; 
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
+    z-index: 10;
+    height: var(--footer-height); 
 }
 
 .footer__texto {
-    font-size: 1rem;
+    font-size: 0.9rem; 
     margin: 0;
 }
 
 .footer__redes {
     display: flex;
-    gap: 15px;
+    gap: 0.8rem; 
 }
 
-.footer__link {
-    font-size: 1rem;
+.footer__redes > span { 
+    color: var(--color-text-gray);
+}
+
+.footer__link:hover {
+    color: var(--color-accent); 
 }
 
 
@@ -305,56 +398,127 @@ a:hover {
 |--------------------------------------------------------------------------
 */
 
-/* Tablet y Móvil (se aplica a pantallas más pequeñas) */
+/* -------------------------------------- */
+/* 2. Tablets y Móviles (Máx. 768px) */
+/* -------------------------------------- */
 @media (max-width: 768px) {
     
-    /* Header: Pasa a un enfoque más vertical */
+    /* Header: Diseño apilado vertical (Logo arriba, Nav abajo) para pantallas estrechas */
     .header {
-        flex-direction: column;
-        text-align: center;
+        height: auto; 
+        padding: 0.5rem 1rem; 
+        flex-direction: column; 
+        align-items: center; 
+        position: static; 
+    }
+    
+    .header__logo-container {
+        width: 100px; 
+        height: 40px; 
+        margin-bottom: 3px; 
+    }
+    
+    /* Navegación Móvil (Horizontal y Desplazable) */
+    .nav {
+        width: 100%;
+        justify-content: center;
+        overflow-x: auto; 
+        overflow-y: hidden;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1); 
+        padding-top: 3px; 
+    }
+    .nav::-webkit-scrollbar {
+        display: none;
     }
     
     .nav__lista {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
+        gap: 0.5rem; 
+        padding-bottom: 3px; 
     }
     
-    /* Productos (Index): Pasan a columna */
-    .productos__galeria {
-        flex-direction: column;
-        align-items: center;
+    .nav__link {
+        font-size: 0.9rem; 
+        padding: 0.3rem 0.5rem; 
+    }
+    
+    /* Título destacado en móvil */
+    .productos__titulo {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        letter-spacing: 1px;
+    }
+    
+    /* Productos (Index) y Catálogo: 2 columnas para Tablets */
+    .productos__galeria,
+    .catalogo-buzos__galeria,
+    .catalogo-pantalones__galeria,
+    .catalogo-remeras__galeria {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 1rem; 
+        padding: 1rem 0.5rem; 
     }
 
-    /* Producto Card: Se ajusta el ancho */
-    .producto-card {
-        width: 90%; 
-        max-width: 400px;
+    .producto-card,
+    .producto-card--catalogo {
+        flex-basis: calc(50% - 1.5rem); 
+        max-width: 45%; 
+        margin: 0.5rem;
     }
     
     .producto-card__imagen {
-        max-width: 100%;
+        height: 180px; 
     }
-    
-    /* Catálogo de Buzos: Pasa a columna */
-    .catalogo-buzos__galeria {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .producto-card--catalogo {
-        width: 90%; /* Ancho completo para móvil */
-    }
-    
-    /* Footer: Pasa a columna */
+
+    /* Footer: Pasa a columna y ajusta el body margin */
     .footer {
         flex-direction: column;
-        text-align: center;
-        gap: 10px;
+        height: auto;
+        padding: 0.5rem 1rem; 
+        gap: 0.4rem;
     }
     
-    .footer__redes {
-        flex-direction: row; /* Mantiene las redes en línea, pero si hay muchas se puede cambiar a columna */
+    body {
+        /* Ajusta el margen inferior para el footer reducido */
+        margin-bottom: calc(var(--footer-height) + 1rem); 
     }
     
+    /* Ajustes de tipografía para móviles */
+    .introduccion__texto {
+        font-size: 1.5rem;
+    }
+    .introduccion__texto--resaltado {
+        font-size: 2rem;
+    }
+    .catalogo-buzos__titulo,
+    .catalogo-pantalones__titulo,
+    .catalogo-remeras__titulo {
+        font-size: 2rem;
+    }
+}
+
+/* -------------------------------------- */
+/* 3. Laptops pequeñas y Tablets (769px a 1024px) */
+/* -------------------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Header: Asegura el diseño en fila para tablets */
+    .header {
+        height: var(--header-height);
+        flex-wrap: nowrap; 
+    }
+    
+    /* Productos (Index): Pasa a 2 columnas principales */
+    .producto-card {
+        flex-basis: calc(50% - 2rem); 
+        max-width: 45%; 
+    }
+    
+    /* Catálogo: Pasa a 2 columnas */
+    .producto-card--catalogo {
+        flex-basis: calc(50% - 2rem);
+        max-width: 45%;
+    }
 }
